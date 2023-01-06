@@ -150,7 +150,7 @@ funcion_w_n = function(a){
   a$Fuente <- revalue(a$Fuente, c("EN ESTUDIO" = "En estudio",
                                   "Relacionado" = "Relacionado"))
   
-  a$Estado <- revalue(a$Estado, c("AsintomÃ¡tico = AsintomÃ¡tico", "Fallecido" = "Fallecido",
+  a$Estado <- revalue(a$Estado, c("Asintomático = Asintomático", "Fallecido" = "Fallecido",
                                   "Grave" = "Grave", "Leve" = "Leve", "Moderado" = "Moderado",
                                   "N/A" = NA))
   a <- a[order(a$Caso),]
