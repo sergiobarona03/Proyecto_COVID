@@ -4,13 +4,13 @@ title: 'Informe II: análisis de supervivencia aplicado al tiempo de permanencia
 author: "Sergio A. Barona M."
 date: "15/06/2022"
 output:
-  pdf_document:
-    toc: yes
-  word_document:
-    toc: yes
   html_document:
     toc: yes
     df_print: paged
+  word_document:
+    toc: yes
+  pdf_document:
+    toc: yes
 editor_options:
   markdown:
     wrap: 72
@@ -680,7 +680,7 @@ plot(df_km, fun = "cumhaz", conf.int = F, main = "Riesgo Acumulado", col = 1:2, 
 
 #### Funciones de riesgo acumulado estimadas diferenciadas según el sexo
 
-Considérese $Sexo$ como una covariable de interés. Por medio del estimador de Nelson-Aalen, se verifica que la estimación de las funciones
+Considérese ahora el $Sexo$ como una covariable de interés. Por medio del estimador de Nelson-Aalen, se verifica que la estimación de las funciones
 de riesgo acumulado diferenciadas según el sexo del paciente vienen dadas por
 
 ```{r}
@@ -791,6 +791,7 @@ $$
 S(t_{0.5}) = 0.5
 $$
 donde $t_{0.5}$ es la mediana del tiempo de supervivencia.
+
 
 ## Análisis preliminar sobre la distribución
 
@@ -1024,6 +1025,7 @@ kable(med_med)
 ### Distribución de Gompertz
 
 Supóngase que el tiempo de supervivencia $T \in (0, \ +\infty) \subseteq \mathbb{R}^{++}$ sigue una distribución de Gompertz con parámetros $\theta, \alpha>0$ tal que $T \sim Gompertz(\theta, \alpha)$, cuya función de densidad se define como 
+
 $$
 f_{T}(t) = \theta \exp \left\{\frac{\theta}{\alpha}\left[1 - 
 e^{\alpha t}\right] + \alpha t \right\}
@@ -1439,6 +1441,7 @@ summary(cox_model)
 ```
 
 La estimación opera mediante máxima verosimilitud y la prueba de significancia individual recurre al estadístico de Wald. En términos generales, se verifica que la covariable $Edad$ es estadísticamente significativa aun al nivel de significancia del $1\%$. Por hipótesis, se consideran pacientes de 20, 40 y 60 años. Las curvas de supervivencia estimadas vienen dadas por 
+
 ```{r}
 cox_model <- coxph(Surv(t, d) ~ Edad , data = df_cov)
 datosnuevos <- data.frame(Edad = c(20, 40, 60))
